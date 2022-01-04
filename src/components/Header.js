@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Toolbar = styled.div`
-  height: 8vh;
+  height: 6vh;
   background-color: rgb(21, 27, 35);
   display: flex;
   justify-content: space-between;

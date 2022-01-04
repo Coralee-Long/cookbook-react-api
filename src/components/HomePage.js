@@ -5,12 +5,21 @@ import BodySection from "./BodySection";
 
 const BigTitleContainer = styled.div`
   height: 50%;
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 10rem;
+`;
+
+const MainTitle = styled.h1`
+  color: rgba(238, 238, 238, 0.9);
+  font-size: 5rem;
+`;
+
+const TextTitle = styled.p`
+  color: rgba(238, 238, 238, 0.9);
+  font-size: 1rem;
 `;
 
 const CountriesContainer = styled.div`
@@ -22,34 +31,67 @@ const CountriesContainer = styled.div`
   align-content: center;
 `;
 
-const MainTitle = styled.h1`
-  color: rgba(238, 238, 238, 0.8);
-  font-size: 5rem;
-`;
-
-const TextTitle = styled.p`
-  color: rgba(238, 238, 238, 0.9);
-  font-size: 1rem;
-`;
-
 const CountryCard = styled.div`
-  border: 2px solid rgba(238, 238, 238, 0.8);
-  border-radius: 3px;
-  height: 65%;
-  width: 26%;
-  margin: auto 1rem;
-`;
-
-const CardBottom = styled.div`
-  background-color: rgba(238, 238, 238, 0.8);
-  height: 25%;
+  height: 100%;
+  width: 33.3%;
+  overflow: hidden;
+  box-shadow: none;
 `;
 
 const CardImage = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1520642197828-b053b701d590?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2872&q=80");
-  height: 75%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
   width: auto;
-  object-fit: fill;
+
+  ${({ aus }) =>
+    aus &&
+    `
+background-image: url("https://images.unsplash.com/photo-1514513255262-76c2200e709e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+`}
+
+  ${({ pak }) =>
+    pak &&
+    `
+background-image: url("https://images.unsplash.com/photo-1636260795041-440083f905cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+`}
+
+ ${({ sa }) =>
+    sa &&
+    `
+background-image: url("https://images.unsplash.com/photo-1575303093127-18b3c4ef8c41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2914&q=80");
+`}
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  background-color: rgba(23, 23, 23, 0.3);
+  transition-duration: 0.5s;
+
+  &:hover {
+    background-color: rgba(23, 23, 23, 0.8);
+  }
+`;
+
+const CountryTitle = styled.h2`
+  /* border: 1px solid #faf9f9; */
+  width: 80%;
+  margin: auto 10%;
+  color: rgba(238, 238, 238, 0.9);
+  font-size: 3rem;
+  font-weight: 900;
+  transition-duration: 0.5s;
+  text-transform: uppercase;
+  text-shadow: black 2px 0 10px;
+
+  &:hover {
+    color: #e07a5f;
+  }
 `;
 
 const HomePage = () => {
@@ -67,11 +109,28 @@ const HomePage = () => {
         </BigTitleContainer>
         <CountriesContainer>
           <CountryCard>
-            <CardImage />
-            <CardBottom />
+            <CardImage aus>
+              <TitleWrapper>
+                <CountryTitle>Australia</CountryTitle>
+              </TitleWrapper>
+            </CardImage>
           </CountryCard>
-          <CountryCard></CountryCard>
-          <CountryCard></CountryCard>
+
+          <CountryCard>
+            <CardImage pak>
+              <TitleWrapper>
+                <CountryTitle>Pakistan</CountryTitle>
+              </TitleWrapper>
+            </CardImage>
+          </CountryCard>
+
+          <CountryCard>
+            <CardImage sa>
+              <TitleWrapper>
+                <CountryTitle>South Africa</CountryTitle>
+              </TitleWrapper>
+            </CardImage>
+          </CountryCard>
         </CountriesContainer>
       </BodySection>
     </>

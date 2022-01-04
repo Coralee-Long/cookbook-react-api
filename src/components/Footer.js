@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
-  height: 12vh;
+  height: 10vh;
   background-color: rgb(21, 27, 35);
   display: flex;
   justify-content: space-between;
