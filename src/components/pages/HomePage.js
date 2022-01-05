@@ -1,9 +1,9 @@
 import { Description } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
-import { TitleXL } from "../Styles";
 import BodySection from "../BodySection";
 import { Link } from "react-router-dom";
+import { TitleXL, TitleL, TitleM, TitleS, TitleXS } from "../Styles";
 
 const BigTitleContainer = styled.div`
   height: 50%;
@@ -20,7 +20,7 @@ const TextTitle = styled.p`
 `;
 
 const CountriesContainer = styled.div`
-  background-color: rgba(23, 23, 23, 0.5);
+  /* background-color: rgba(23, 23, 23, 0.5); */
   height: 50%;
   width: 100%;
   display: flex;
@@ -29,10 +29,12 @@ const CountriesContainer = styled.div`
 `;
 
 const CountryCard = styled.div`
-  height: 100%;
-  width: 33.3%;
+  height: 80%;
+  width: 30%;
+  margin: 5rem 1rem;
   overflow: hidden;
   box-shadow: none;
+  box-shadow: 10px 10px 5px rgba(23, 23, 23, 1);
 `;
 
 const CardImage = styled.div`
@@ -71,7 +73,7 @@ const TitleWrapper = styled.div`
   transition-duration: 0.5s;
 
   &:hover {
-    background-color: rgba(23, 23, 23, 0.8);
+    background-color: rgba(238, 238, 238, 0.3);
   }
 `;
 
@@ -83,7 +85,7 @@ export const CountryTitle = styled.h2`
   font-size: 3rem;
   font-weight: 900;
   transition-duration: 0.5s;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-shadow: black 2px 0 10px;
 
   &:hover {
