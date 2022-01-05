@@ -4,9 +4,10 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BodySection from "./components/BodySection";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/pages/HomePage";
 import { client } from "./Client";
 import SearchResults from "./components/SearchResults";
+import AppRouter from "./AppRouter";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -23,13 +24,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-      {/* <SearchResults recipes={recipes} setRecipes={setRecipes} /> */}
+      <AppRouter />
 
-      <BodySection>
-        <HomePage />
-      </BodySection>
-      <Footer />
+      {/* <SearchResults recipes={recipes} setRecipes={setRecipes} /> */}
     </div>
   );
 };

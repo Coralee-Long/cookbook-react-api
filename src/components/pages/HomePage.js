@@ -1,7 +1,9 @@
 import { Description } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
-import BodySection from "./BodySection";
+import { TitleXL } from "../Styles";
+import BodySection from "../BodySection";
+import { Link } from "react-router-dom";
 
 const BigTitleContainer = styled.div`
   height: 50%;
@@ -10,11 +12,6 @@ const BigTitleContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const MainTitle = styled.h1`
-  color: rgba(238, 238, 238, 0.9);
-  font-size: 5rem;
 `;
 
 const TextTitle = styled.p`
@@ -78,7 +75,7 @@ const TitleWrapper = styled.div`
   }
 `;
 
-const CountryTitle = styled.h2`
+export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
   width: 80%;
   margin: auto 10%;
@@ -99,7 +96,7 @@ const HomePage = () => {
     <>
       <BodySection>
         <BigTitleContainer>
-          <MainTitle>Title Placeholder</MainTitle>
+          <TitleXL>Title Placeholder</TitleXL>
           <TextTitle>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti
             consectetur rerum qui quaerat, corporis voluptatem eveniet nihil, ex
@@ -107,29 +104,36 @@ const HomePage = () => {
             asperiores sit dicta!
           </TextTitle>
         </BigTitleContainer>
+
         <CountriesContainer>
           <CountryCard>
-            <CardImage aus>
-              <TitleWrapper>
-                <CountryTitle>Australia</CountryTitle>
-              </TitleWrapper>
-            </CardImage>
+            <Link to="/australia">
+              <CardImage aus>
+                <TitleWrapper>
+                  <CountryTitle>Australia</CountryTitle>
+                </TitleWrapper>
+              </CardImage>
+            </Link>
           </CountryCard>
 
           <CountryCard>
-            <CardImage pak>
-              <TitleWrapper>
-                <CountryTitle>Pakistan</CountryTitle>
-              </TitleWrapper>
-            </CardImage>
+            <Link to="/pakistan">
+              <CardImage pak>
+                <TitleWrapper>
+                  <CountryTitle>Pakistan</CountryTitle>
+                </TitleWrapper>
+              </CardImage>
+            </Link>
           </CountryCard>
 
           <CountryCard>
-            <CardImage sa>
-              <TitleWrapper>
-                <CountryTitle>South Africa</CountryTitle>
-              </TitleWrapper>
-            </CardImage>
+            <Link to="/southafrica">
+              <CardImage sa>
+                <TitleWrapper>
+                  <CountryTitle>South Africa</CountryTitle>
+                </TitleWrapper>
+              </CardImage>
+            </Link>
           </CountryCard>
         </CountriesContainer>
       </BodySection>
