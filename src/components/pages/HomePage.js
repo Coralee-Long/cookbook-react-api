@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { TitleXL, TitleL, TitleM, TitleS, TitleXS } from "../Styles";
 
 const BigTitleContainer = styled.div`
-  height: 50%;
+  height: 40%;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,12 @@ const TextTitle = styled.p`
 
 const CountriesContainer = styled.div`
   /* background-color: rgba(23, 23, 23, 0.5); */
-  height: 50%;
+  height: 60%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
+  padding: 0 0 4rem 0;
 `;
 
 const CountryCard = styled.div`
@@ -80,12 +81,10 @@ const TitleWrapper = styled.div`
 export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
   width: 80%;
-  margin: auto 10%;
   color: rgba(238, 238, 238, 0.9);
   font-size: 3rem;
   font-weight: 900;
   transition-duration: 0.5s;
-  /* text-transform: uppercase; */
   text-shadow: black 2px 0 10px;
 
   &:hover {

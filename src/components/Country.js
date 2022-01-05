@@ -12,8 +12,7 @@ import {
 } from "../components/Styles";
 
 const CountryTitleW = styled.div`
-  border: 1px solid red;
-  height: 15%;
+  height: 12%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -21,23 +20,21 @@ const CountryTitleW = styled.div`
 `;
 
 const RecipesW = styled.div`
-  height: 85%;
+  height: 88%;
   width: 90%;
-  border: 1px solid red;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
   row-gap: 5px;
   column-gap: 10px;
 `;
 
 const RecipeCard = styled.div`
-  /* border: 1px solid red; */
   width: 30%;
   height: 45%;
-  box-shadow: 10px 10px 10px rgba(23, 23, 23, 0.8);
+  box-shadow: 10px 10px 15px rgba(23, 23, 23, 0.9);
 `;
 
 const RecipeImg = styled.div`
@@ -74,7 +71,7 @@ const RecipeInfo = styled.div`
   justify-content: center;
   align-items: center;
   transition-duration: 0.5s;
-  padding: 1rem;
+  padding: 2rem;
 
   &:hover {
     height: 60%;
@@ -130,11 +127,106 @@ const Country = () => {
               </Description>
             </RecipeInfo>
           </RecipeCard>
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
+          <RecipeCard>
+            <RecipeImg />
+            <RecipeInfo>
+              <TitleS dark>Recipe Name</TitleS>
+              <ExtraInfo>
+                <Nutrients>
+                  <ListItem>Protein</ListItem>
+                  <ListItem>Fat</ListItem>
+                  <ListItem>Carbs</ListItem>
+                  <ListItem>Fiber</ListItem>
+                </Nutrients>
+              </ExtraInfo>
+              <Description>
+                Recipe Description... Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
+                repellat officiis maxime quidem obcaecati sit in assumenda
+                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
+              </Description>
+            </RecipeInfo>
+          </RecipeCard>
+          <RecipeCard>
+            <RecipeImg />
+            <RecipeInfo>
+              <TitleS dark>Recipe Name</TitleS>
+              <ExtraInfo>
+                <Nutrients>
+                  <ListItem>Protein</ListItem>
+                  <ListItem>Fat</ListItem>
+                  <ListItem>Carbs</ListItem>
+                  <ListItem>Fiber</ListItem>
+                </Nutrients>
+              </ExtraInfo>
+              <Description>
+                Recipe Description... Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
+                repellat officiis maxime quidem obcaecati sit in assumenda
+                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
+              </Description>
+            </RecipeInfo>
+          </RecipeCard>
+          <RecipeCard>
+            <RecipeImg />
+            <RecipeInfo>
+              <TitleS dark>Recipe Name</TitleS>
+              <ExtraInfo>
+                <Nutrients>
+                  <ListItem>Protein</ListItem>
+                  <ListItem>Fat</ListItem>
+                  <ListItem>Carbs</ListItem>
+                  <ListItem>Fiber</ListItem>
+                </Nutrients>
+              </ExtraInfo>
+              <Description>
+                Recipe Description... Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
+                repellat officiis maxime quidem obcaecati sit in assumenda
+                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
+              </Description>
+            </RecipeInfo>
+          </RecipeCard>
+          <RecipeCard>
+            <RecipeImg />
+            <RecipeInfo>
+              <TitleS dark>Recipe Name</TitleS>
+              <ExtraInfo>
+                <Nutrients>
+                  <ListItem>Protein</ListItem>
+                  <ListItem>Fat</ListItem>
+                  <ListItem>Carbs</ListItem>
+                  <ListItem>Fiber</ListItem>
+                </Nutrients>
+              </ExtraInfo>
+              <Description>
+                Recipe Description... Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
+                repellat officiis maxime quidem obcaecati sit in assumenda
+                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
+              </Description>
+            </RecipeInfo>
+          </RecipeCard>
+          <RecipeCard>
+            <RecipeImg />
+            <RecipeInfo>
+              <TitleS dark>Recipe Name</TitleS>
+              <ExtraInfo>
+                <Nutrients>
+                  <ListItem>Protein</ListItem>
+                  <ListItem>Fat</ListItem>
+                  <ListItem>Carbs</ListItem>
+                  <ListItem>Fiber</ListItem>
+                </Nutrients>
+              </ExtraInfo>
+              <Description>
+                Recipe Description... Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
+                repellat officiis maxime quidem obcaecati sit in assumenda
+                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
+              </Description>
+            </RecipeInfo>
+          </RecipeCard>
         </RecipesW>
       </BodySection>
     </>
