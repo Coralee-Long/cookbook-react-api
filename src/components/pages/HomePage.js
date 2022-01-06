@@ -17,6 +17,8 @@ const BigTitleContainer = styled.div`
 const TextTitle = styled.p`
   color: rgba(238, 238, 238, 0.9);
   font-size: 1rem;
+  text-align: center;
+  text-shadow: black 2px 0 10px;
 `;
 
 const CountriesContainer = styled.div`
@@ -80,7 +82,7 @@ const TitleWrapper = styled.div`
 
 export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
-
+  text-align: center;
   color: rgba(238, 238, 238, 0.9);
   font-size: 3rem;
   font-weight: 900;

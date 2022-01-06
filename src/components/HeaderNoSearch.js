@@ -35,7 +35,7 @@ const ToolbarRight = styled.div`
   font-size: 1.5rem;
 `;
 
-const Header = () => {
+const HeaderNoSearch = () => {
   return (
     <div>
       <Toolbar>
@@ -57,10 +57,10 @@ const Header = () => {
             </Link>
           </Nav>
         </ToolbarMiddle>
-        <ToolbarRight>Search</ToolbarRight>
+        <ToolbarRight></ToolbarRight>
       </Toolbar>
     </div>
   );
 };
 
-export default Header;
+export default HeaderNoSearch;

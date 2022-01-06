@@ -5,13 +5,15 @@ import HomePage from "./components/pages/HomePage";
 import Australia from "./components/pages/Australia";
 import Pakistan from "./components/pages/Pakistan";
 import SouthAfrica from "./components/pages/SouthAfrica";
+import Nav from "./Nav";
 
 const AppRouter = ({ recipes, setRecipes }) => {
   return (
     <div>
-      <Header />
+      <Nav />
+
       <Routes>
-        <Route exact path="" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/pakistan" element={<Pakistan />} />
         <Route exact path="/southafrica" element={<SouthAfrica />} />
         <Route

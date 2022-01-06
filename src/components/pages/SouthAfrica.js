@@ -1,7 +1,9 @@
+import Recipe from "./Recipe";
+
 const SouthAfrica = () => {
   return (
     <div>
-      <h1>SOUTH AFRICA</h1>
+      <Recipe />
     </div>
   );
 };

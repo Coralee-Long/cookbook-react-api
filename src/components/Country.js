@@ -12,6 +12,7 @@ import {
 } from "../components/Styles";
 
 const Country = ({ recipes, setRecipe }) => {
+  console.log(recipes);
   return (
     <>
       <BodySection>
@@ -22,10 +23,16 @@ const Country = ({ recipes, setRecipe }) => {
           {recipes
             .filter((recipe) => recipe.fields.country === "Australia")
             .map((filteredCountry) => (
-              <RecipeCard>
-                <RecipeImg />
+              <RecipeCard key={filteredCountry.fields.id}>
+                <RecipeImg
+                  style={{
+                    backgroundImage: `url("${filteredCountry.fields.url}")`,
+                  }}
+                />
                 <RecipeInfo>
-                  <TitleS dark>{filteredCountry.fields.title}</TitleS>
+                  <TitleS dark style={{ textAlign: "center" }}>
+                    {filteredCountry.fields.title}
+                  </TitleS>
 
                   <ExtraInfo>
                     <Nutrients>
@@ -82,11 +89,12 @@ const RecipeCard = styled.div`
 const RecipeImg = styled.div`
   height: 100%;
   width: 100%;
-  background-image: url("https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 `;
+
 const Nutrients = styled.ul`
   display: flex;
   flex-direction: row;
