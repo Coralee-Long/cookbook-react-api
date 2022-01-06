@@ -80,7 +80,7 @@ const TitleWrapper = styled.div`
 
 export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
-  width: 80%;
+
   color: rgba(238, 238, 238, 0.9);
   font-size: 3rem;
   font-weight: 900;
