@@ -99,13 +99,17 @@ const ListItem = styled.li`
   text-align: left;
 `;
 
+
+
+
+
 const Country = ({ recipes, setRecipe }) => {
-  //const [country, setCountry] = useState('')
+  const [country, setCountry] = useState('')
   return (
     <>
       <BodySection>
         <CountryTitleW>
-          <TitleL>Australia</TitleL>
+          <TitleL>{country}</TitleL>
         </CountryTitleW>
         <RecipesW>
           {recipes
@@ -114,6 +118,7 @@ const Country = ({ recipes, setRecipe }) => {
               <RecipeCard>
                 <RecipeImg />
                 <RecipeInfo>
+                  {setCountry(filteredCountry.fields.title)}  
                   <TitleS dark>{filteredCountry.fields.title}</TitleS>
                   <ExtraInfo>
                     <Nutrients>
@@ -138,5 +143,10 @@ const Country = ({ recipes, setRecipe }) => {
     </>
   );
 };
+
+
+
+
+
 
 export default Country;
