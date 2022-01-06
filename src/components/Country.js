@@ -99,134 +99,40 @@ const ListItem = styled.li`
   text-align: left;
 `;
 
-const Country = () => {
+const Country = ({ recipes, setRecipe }) => {
+  //const [country, setCountry] = useState('')
   return (
     <>
       <BodySection>
         <CountryTitleW>
-          <TitleL>Country Title</TitleL>
+          <TitleL>Australia</TitleL>
         </CountryTitleW>
         <RecipesW>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
-          <RecipeCard>
-            <RecipeImg />
-            <RecipeInfo>
-              <TitleS dark>Recipe Name</TitleS>
-              <ExtraInfo>
-                <Nutrients>
-                  <ListItem>Protein</ListItem>
-                  <ListItem>Fat</ListItem>
-                  <ListItem>Carbs</ListItem>
-                  <ListItem>Fiber</ListItem>
-                </Nutrients>
-              </ExtraInfo>
-              <Description>
-                Recipe Description... Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Expedita, fugiat aspernatur asperiores, quod
-                repellat officiis maxime quidem obcaecati sit in assumenda
-                nesciunt omnis a ad ducimus doloremque debitis quasi voluptate?
-              </Description>
-            </RecipeInfo>
-          </RecipeCard>
+          {recipes
+            .filter((recipe) => recipe.fields.country === "Australia")
+            .map((filteredCountry) => (
+              <RecipeCard>
+                <RecipeImg />
+                <RecipeInfo>
+                  <TitleS dark>{filteredCountry.fields.title}</TitleS>
+                  <ExtraInfo>
+                    <Nutrients>
+                      <ListItem>Protein</ListItem>
+                      <ListItem>Fat</ListItem>
+                      <ListItem>Carbs</ListItem>
+                      <ListItem>Fiber</ListItem>
+                    </Nutrients>
+                  </ExtraInfo>
+                  <Description>
+                    Recipe Description... Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Expedita, fugiat aspernatur asperiores,
+                    quod repellat officiis maxime quidem obcaecati sit in
+                    assumenda nesciunt omnis a ad ducimus doloremque debitis
+                    quasi voluptate?
+                  </Description>
+                </RecipeInfo>
+              </RecipeCard>
+            ))}
         </RecipesW>
       </BodySection>
     </>

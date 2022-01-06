@@ -3,10 +3,10 @@ import React from "react";
 const SearchResults = ({ recipes, setRecipes }) => {
   return (
     <>
-      {recipes.map((recipe) => {
+      {recipes.map((recipe, key) => {
         return (
           <div key={recipe.fields.id}>
-            <h1>{recipe.fields.title}</h1>
+            <h1>{recipe.fields.country}</h1>
             <img
               src={recipe.fields.image.fields.file.url}
               height="100px"

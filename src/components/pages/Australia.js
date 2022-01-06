@@ -1,9 +1,9 @@
 import Country from "../Country";
 
-const Australia = () => {
+const Australia = ({ setRecipes, recipes }) => {
   return (
     <div>
-      <Country />
+      <Country recipes={recipes} setRecipes={setRecipes} />
     </div>
   );
 };

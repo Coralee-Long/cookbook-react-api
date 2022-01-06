@@ -6,7 +6,7 @@ import Australia from "./components/pages/Australia";
 import Pakistan from "./components/pages/Pakistan";
 import SouthAfrica from "./components/pages/SouthAfrica";
 
-const AppRouter = () => {
+const AppRouter = ({ recipes, setRecipes }) => {
   return (
     <div>
       <Header />
@@ -14,8 +14,13 @@ const AppRouter = () => {
         <Route exact path="" element={<HomePage />} />
         <Route exact path="/pakistan" element={<Pakistan />} />
         <Route exact path="/southafrica" element={<SouthAfrica />} />
-        <Route exact path="/australia" element={<Australia />} />
+        <Route
+          exact
+          path="/australia"
+          element={<Australia recipes={recipes} setRecipes={setRecipes} />}
+        />
       </Routes>
+
       <Footer />
     </div>
   );

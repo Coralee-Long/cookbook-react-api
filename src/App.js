@@ -8,6 +8,7 @@ import HomePage from "./components/pages/HomePage";
 import { client } from "./Client";
 import SearchResults from "./components/SearchResults";
 import AppRouter from "./AppRouter";
+import Australia from "./components/pages/Australia";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -20,11 +21,11 @@ const App = () => {
     client.getEntries().then((response) => setRecipes(response.items));
   };
 
-  console.log(recipes);
+  // console.log(recipes);
 
   return (
     <div className="App">
-      <AppRouter />
+      <AppRouter recipes={recipes} setRecipes={setRecipes} />
 
       {/* <SearchResults recipes={recipes} setRecipes={setRecipes} /> */}
     </div>
