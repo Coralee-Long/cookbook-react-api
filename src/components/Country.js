@@ -11,6 +11,48 @@ import {
   TextSecondary,
 } from "../components/Styles";
 
+const Country = ({ recipes, setRecipe }) => {
+  return (
+    <>
+      <BodySection>
+        <CountryTitleW>
+          <TitleL>Australia</TitleL>
+        </CountryTitleW>
+        <RecipesW>
+          {recipes
+            .filter((recipe) => recipe.fields.country === "Australia")
+            .map((filteredCountry) => (
+              <RecipeCard>
+                <RecipeImg />
+                <RecipeInfo>
+                  <TitleS dark>{filteredCountry.fields.title}</TitleS>
+
+                  <ExtraInfo>
+                    <Nutrients>
+                      <ListItem>Protein</ListItem>
+                      <ListItem>Fat</ListItem>
+                      <ListItem>Carbs</ListItem>
+                      <ListItem>Fiber</ListItem>
+                    </Nutrients>
+                  </ExtraInfo>
+                  <Description>
+                    Recipe Description... Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Expedita, fugiat aspernatur asperiores,
+                    quod repellat officiis maxime quidem obcaecati sit in
+                    assumenda nesciunt omnis a ad ducimus doloremque debitis
+                    quasi voluptate?
+                  </Description>
+                </RecipeInfo>
+              </RecipeCard>
+            ))}
+        </RecipesW>
+      </BodySection>
+    </>
+  );
+};
+
+export default Country;
+
 const CountryTitleW = styled.div`
   height: 12%;
   width: 100%;
@@ -60,8 +102,8 @@ const Description = styled.p`
 
 const RecipeInfo = styled.div`
   width: 100%;
-  height: 30%;
-  bottom: 30% !important;
+  height: 35%;
+  bottom: 35% !important;
   /* height: 60%;
   bottom: 60% !important; */
   position: relative;
@@ -98,45 +140,3 @@ const ListItem = styled.li`
   padding: 0 1rem;
   text-align: left;
 `;
-
-const Country = ({ recipes, setRecipe }) => {
-  //const [country, setCountry] = useState('')
-  return (
-    <>
-      <BodySection>
-        <CountryTitleW>
-          <TitleL>Australia</TitleL>
-        </CountryTitleW>
-        <RecipesW>
-          {recipes
-            .filter((recipe) => recipe.fields.country === "Australia")
-            .map((filteredCountry) => (
-              <RecipeCard>
-                <RecipeImg />
-                <RecipeInfo>
-                  <TitleS dark>{filteredCountry.fields.title}</TitleS>
-                  <ExtraInfo>
-                    <Nutrients>
-                      <ListItem>Protein</ListItem>
-                      <ListItem>Fat</ListItem>
-                      <ListItem>Carbs</ListItem>
-                      <ListItem>Fiber</ListItem>
-                    </Nutrients>
-                  </ExtraInfo>
-                  <Description>
-                    Recipe Description... Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Expedita, fugiat aspernatur asperiores,
-                    quod repellat officiis maxime quidem obcaecati sit in
-                    assumenda nesciunt omnis a ad ducimus doloremque debitis
-                    quasi voluptate?
-                  </Description>
-                </RecipeInfo>
-              </RecipeCard>
-            ))}
-        </RecipesW>
-      </BodySection>
-    </>
-  );
-};
-
-export default Country;
