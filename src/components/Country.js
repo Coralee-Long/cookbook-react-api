@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BodySection from "./BodySection";
+import Header from "./Header";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Styles.css";
@@ -15,16 +16,18 @@ import {
 } from "../components/Styles";
 import { IconContext } from "react-icons";
 import { GiFlour, GiMeat, GiSquareBottle } from "react-icons/gi";
-import { FaTint } from "react-icons/fa";
 
-const Country = ({ recipes, setRecipe }) => {
+const Country = ({ recipes, query }) => {
+  const countryName = useParams();
   const location = useLocation(); // "/australia"
   const [icon, setIcon] = useState("");
   const updatedLocationName = location.pathname.slice(1); // "australia"
-  const locationUpperCase = // "Australia"
+  let locationUpperCase = // "Australia"
     updatedLocationName.charAt(0).toUpperCase() + updatedLocationName.slice(1);
-  //console.log(locationUpperCase);
-  console.log(updatedLocationName);
+  if (updatedLocationName === "southafrica") {
+    locationUpperCase = "South Africa";
+  }
+  console.log(query);
 
   return (
     <>
@@ -34,7 +37,7 @@ const Country = ({ recipes, setRecipe }) => {
         </CountryTitleW>
         <RecipesW>
           {recipes
-            .filter((recipe) => recipe.fields.country === locationUpperCase)
+            .filter((recipe) => recipe.fields.country === updatedLocationName)
             .map((filteredCountry) => (
               <RecipeCard key={filteredCountry.fields.id}>
                 <Link
@@ -61,8 +64,8 @@ const Country = ({ recipes, setRecipe }) => {
                         <IconsContainer>
                           {filteredCountry.fields.nutrition
                             .slice(0, 3)
-                            .map((nutri) => (
-                              <ListItem>
+                            .map((nutri, index) => (
+                              <ListItem key={index}>
                                 {nutri.label === "Fat" ? (
                                   <GiSquareBottle />
                                 ) : (
@@ -137,7 +140,6 @@ const RecipeCard = styled.div`
 const RecipeImg = styled.div`
   height: 100%;
   width: 100%;
-  /* background-image: url("https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -155,8 +157,6 @@ const RecipeInfo = styled.div`
   width: 100%;
   height: 35%;
   bottom: 35% !important;
-  /* height: 60%;
-  bottom: 60% !important; */
   position: relative;
   background-color: rgba(238, 238, 238, 0.85);
   display: flex;

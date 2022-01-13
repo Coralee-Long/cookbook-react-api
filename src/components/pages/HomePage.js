@@ -93,7 +93,7 @@ const TitleWrapper = styled.div`
 
 const TitleBox = styled.div`
   width: 80%;
-  height: 18%;
+  height: 20%;
   display: flex;
   flex-direction: column;
   margin: auto 10%;
@@ -102,7 +102,7 @@ const TitleBox = styled.div`
   text-align: center !important;
   background-color: rgba(23, 23, 23, 0.9);
   transition-duration: 0.5s;
-  border-radius: 15px !important;
+  border-radius: 10px !important;
 
   &:hover {
     transform: scale(1.06);
@@ -114,7 +114,7 @@ export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
   text-align: center;
   color: rgba(238, 238, 238, 0.9);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 600;
   text-transform: uppercase;
   transition-duration: 0.5s;
@@ -122,6 +122,7 @@ export const CountryTitle = styled.h2`
   letter-spacing: 5px;
   margin: 0;
   padding-top: 5px;
+  padding-bottom: 5px;
 `;
 
 const CountryP = styled.p`

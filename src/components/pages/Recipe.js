@@ -158,18 +158,9 @@ const NutrItems = styled.li`
   text-align: center;
 `;
 
-// const Input = styled.input`
-//   padding: 10px;
-//   margin: 10px;
-// `;
-
 const Recipe = ({ recipes, setRecipe }) => {
   const { countryName, recipeName } = useParams();
 
-  // const recipeName = useLocation();
-  // console.log(recipeName); // "/australia/RecipeName"
-  // const updatedRecipeName = recipeName.pathname.slice(2);
-  // console.log(updatedRecipeName);
   return (
     <>
       <BodySection>

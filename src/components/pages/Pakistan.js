@@ -1,7 +1,9 @@
+import Recipe from "./Recipe";
+
 const Pakistan = () => {
   return (
     <div>
-      <h1>PAKISTAN</h1>
+      <Recipe />
     </div>
   );
 };

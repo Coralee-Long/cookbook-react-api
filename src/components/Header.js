@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { TextMain } from "./Styles";
 import { MdOutlineFoodBank } from "react-icons/md";
+import Search from "./Search";
 
 const Toolbar = styled.div`
   height: 6vh;
@@ -36,8 +37,9 @@ const ToolbarRight = styled.div`
   font-size: 1.5rem;
 `;
 
-const Header = () => {
+const Header = ({ query }) => {
   const location = useLocation();
+  const { countryName } = useParams();
   return (
     <div>
       <Toolbar>
@@ -92,7 +94,9 @@ const Header = () => {
         location.pathname == "/recipe/recipeName" ? (
           ""
         ) : (
-          <ToolbarRight>Search</ToolbarRight>
+          <ToolbarRight>
+            <Search query={query} />
+          </ToolbarRight>
         )}
       </Toolbar>
     </div>
