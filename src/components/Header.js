@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { TextMain } from "./Styles";
+import { MdOutlineFoodBank } from "react-icons/md";
 
 const Toolbar = styled.div`
   height: 6vh;
@@ -13,7 +15,8 @@ const Toolbar = styled.div`
 
 const ToolbarLeft = styled.div`
   color: #faf9f9;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  text-align: center;
 `;
 const ToolbarMiddle = styled.div`
   color: #faf9f9;
@@ -26,8 +29,6 @@ const Nav = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   list-style-type: none;
-  /* padding-left: 2rem;
-  padding-right: 20rem; */
 `;
 
 const ToolbarRight = styled.div`
@@ -36,28 +37,63 @@ const ToolbarRight = styled.div`
 `;
 
 const Header = () => {
+  const location = useLocation();
   return (
     <div>
       <Toolbar>
         <ToolbarLeft>
-          <Link to="/" style={{ color: "#faf9f9" }}>
-            Logo
-          </Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              color: isActive
+                ? "rgba(255, 183, 3, 1)"
+                : "rgba(238, 238, 238, 0.9)",
+            })}
+          >
+            <MdOutlineFoodBank value={{ size: "3.5em" }} />
+            <TextMain>Food.Me</TextMain>
+          </NavLink>
         </ToolbarLeft>
         <ToolbarMiddle>
           <Nav>
-            <Link to="/australia" style={{ color: "#faf9f9" }}>
+            <NavLink
+              to="/australia"
+              style={({ isActive }) => ({
+                color: isActive
+                  ? "rgba(255, 183, 3, 1)"
+                  : "rgba(238, 238, 238, 0.9)",
+              })}
+            >
               Australia
-            </Link>
-            <Link to="/pakistan" style={{ color: "#faf9f9" }}>
+            </NavLink>
+            <NavLink
+              to="/pakistan"
+              style={({ isActive }) => ({
+                color: isActive
+                  ? "rgba(255, 183, 3, 1)"
+                  : "rgba(238, 238, 238, 0.9)",
+              })}
+            >
               Pakistan
-            </Link>
-            <Link to="/southafrica" style={{ color: "#faf9f9" }}>
+            </NavLink>
+            <NavLink
+              to="/southafrica"
+              style={({ isActive }) => ({
+                color: isActive
+                  ? "rgba(255, 183, 3, 1)"
+                  : "rgba(238, 238, 238, 0.9)",
+              })}
+            >
               South Africa
-            </Link>
+            </NavLink>
           </Nav>
         </ToolbarMiddle>
-        <ToolbarRight>Search</ToolbarRight>
+        {location.pathname == "/" ||
+        location.pathname == "/recipe/recipeName" ? (
+          ""
+        ) : (
+          <ToolbarRight>Search</ToolbarRight>
+        )}
       </Toolbar>
     </div>
   );

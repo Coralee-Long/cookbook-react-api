@@ -3,7 +3,15 @@ import React from "react";
 import styled from "styled-components";
 import BodySection from "../BodySection";
 import { Link } from "react-router-dom";
-import { TitleXL, TitleL, TitleM, TitleS, TitleXS } from "../Styles";
+import {
+  TitleXL,
+  TitleL,
+  TitleM,
+  TitleS,
+  TitleXS,
+  TextMain,
+  TextSecondary,
+} from "../Styles";
 
 const BigTitleContainer = styled.div`
   height: 40%;
@@ -38,6 +46,7 @@ const CountryCard = styled.div`
   overflow: hidden;
   box-shadow: none;
   box-shadow: 10px 10px 5px rgba(23, 23, 23, 1);
+  border-radius: 15px !important;
 `;
 
 const CardImage = styled.div`
@@ -46,6 +55,7 @@ const CardImage = styled.div`
   background-repeat: no-repeat;
   height: 100%;
   width: auto;
+  border-radius: 15px !important;
 
   ${({ aus }) =>
     aus &&
@@ -72,11 +82,31 @@ const TitleWrapper = styled.div`
   justify-content: center;
   align-content: center;
   height: 100%;
-  background-color: rgba(23, 23, 23, 0.3);
+  background-color: rgba(238, 238, 238, 0.2);
+  border-radius: 15px !important;
   transition-duration: 0.5s;
 
   &:hover {
-    background-color: rgba(238, 238, 238, 0.3);
+    background-color: rgba(255, 183, 3, 0.3);
+  }
+`;
+
+const TitleBox = styled.div`
+  width: 80%;
+  height: 18%;
+  display: flex;
+  flex-direction: column;
+  margin: auto 10%;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  background-color: rgba(23, 23, 23, 0.9);
+  transition-duration: 0.5s;
+  border-radius: 15px !important;
+
+  &:hover {
+    transform: scale(1.06);
+    color: white;
   }
 `;
 
@@ -84,14 +114,21 @@ export const CountryTitle = styled.h2`
   /* border: 1px solid #faf9f9; */
   text-align: center;
   color: rgba(238, 238, 238, 0.9);
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
   transition-duration: 0.5s;
   text-shadow: black 2px 0 10px;
+  letter-spacing: 5px;
+  margin: 0;
+  padding-top: 5px;
+`;
 
-  &:hover {
-    color: #e07a5f;
-  }
+const CountryP = styled.p`
+  color: rgba(238, 238, 238, 1);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding-bottom: 12px;
 `;
 
 const HomePage = () => {
@@ -103,8 +140,17 @@ const HomePage = () => {
           <TextTitle>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti
             consectetur rerum qui quaerat, corporis voluptatem eveniet nihil, ex
-            cumque laboriosam facere! Dolore nulla magni ducimus ab in,
-            asperiores sit dicta!
+            cumque laboriosam facere! <br />
+            Dolore nulla magni ducimus ab in, asperiores sit dicta! Lorem ipsum
+            <br />
+            <br />
+            dolor sit amet consectetur, adipisicing elit. Deleniti consectetur
+            rerum qui quaerat, corporis voluptatem eveniet nihil, ex cumque
+            laboriosam facere! Dolore nulla magni ducimus ab in, asperiores sit
+            dicta! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Deleniti consectetur rerum qui quaerat, corporis voluptatem eveniet
+            nihil, ex cumque laboriosam facere! Dolore nulla magni ducimus ab
+            in, asperiores sit dicta!
           </TextTitle>
         </BigTitleContainer>
 
@@ -113,7 +159,10 @@ const HomePage = () => {
             <Link to="/australia">
               <CardImage aus>
                 <TitleWrapper>
-                  <CountryTitle>Australia</CountryTitle>
+                  <TitleBox>
+                    <CountryTitle>Australia</CountryTitle>
+                    <CountryP>THERE'S NOTHING LIKE AUSTRALIA</CountryP>
+                  </TitleBox>
                 </TitleWrapper>
               </CardImage>
             </Link>
@@ -123,7 +172,10 @@ const HomePage = () => {
             <Link to="/pakistan">
               <CardImage pak>
                 <TitleWrapper>
-                  <CountryTitle>Pakistan</CountryTitle>
+                  <TitleBox>
+                    <CountryTitle>Pakistan</CountryTitle>
+                    <CountryP>IT'S BEAUTIFUL, IT'S PAKISTAN</CountryP>
+                  </TitleBox>
                 </TitleWrapper>
               </CardImage>
             </Link>
@@ -133,7 +185,10 @@ const HomePage = () => {
             <Link to="/southafrica">
               <CardImage sa>
                 <TitleWrapper>
-                  <CountryTitle>South Africa</CountryTitle>
+                  <TitleBox>
+                    <CountryTitle>South Africa</CountryTitle>
+                    <CountryP>INSPIRING NEW WAYS</CountryP>
+                  </TitleBox>
                 </TitleWrapper>
               </CardImage>
             </Link>

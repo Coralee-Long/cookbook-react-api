@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BodySection from "../BodySection";
 import styled from "styled-components";
+import { useParams, useLocation } from "react-router-dom";
 import {
   TitleXL,
   TitleL,
@@ -19,15 +20,15 @@ const RecipeContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 0 2rem 0;
+
   row-gap: 5px;
   column-gap: 10px;
 `;
 
 const RecipeCardLG = styled.div`
   /* border: 1px solid rgba(238, 238, 238, 0.9); */
-  width: 85%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   box-shadow: 20px 20px 25px rgba(23, 23, 23, 0.9);
   background-color: rgba(238, 238, 238, 0.9);
   display: flex;
@@ -54,27 +55,27 @@ const RecipeMain = styled.div`
   justify-content: center;
   align-items: center;
   transition-duration: 0.5s;
-  padding: 2rem;
+  padding: 2rem 3.5rem;
 `;
 
 const RecipeTitleContainer = styled.div`
   /* border: 1px solid red; */
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
 `;
 
 const RecipeItemsRow = styled.div`
-  /* border: 1px solid red; */
-  width: 80%;
+  width: 100%;
   display: flex;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.2);
 `;
 
 const ListItemR = styled.li`
@@ -82,100 +83,182 @@ const ListItemR = styled.li`
   padding: 0 2rem;
 `;
 
-const NutrientsR = styled.ul`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 10px;
-`;
+// const NutrientsR = styled.ul`
+//   display: flex;
+//   flex-direction: row;
+//   /* justify-content: space-between; */
+//   list-style-type: none;
+// `;
 
 const RecipeInfoContainer = styled.div`
   /* border: 1px solid purple; */
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
 `;
 
 const RecipeIngredients = styled.div`
   /* border: 1px solid green; */
-  height: 100%;
-  width: 48%;
+  height: 98%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  padding-top: 3rem;
 `;
 
 const RecipeInstructions = styled.div`
   /* border: 1px solid green; */
-  height: 100%;
-  width: 48%;
+  height: 98%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  padding: 3rem 1rem 0 1rem;
 `;
 
+const IngrItems = styled.li`
+  color: rgba(23, 23, 23, 0.8);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.2);
+  padding: 1rem 0;
+`;
+
+const IngrList = styled.ul`
+  list-style-type: none;
+  padding-inline-start: 0px !important;
+`;
+
+const InstrItems = styled.li`
+  color: rgba(23, 23, 23, 0.8);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.2);
+  padding: 1rem 0;
+`;
+
+const InstrList = styled.ul`
+  list-style-type: none;
+`;
+
+const NutrList = styled.ul`
+  width: 80%;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline-start: 0px;
+`;
+
+const NutrItems = styled.li`
+  color: rgba(23, 23, 23, 0.8);
+  padding: 0rem 2rem;
+  text-align: center;
+`;
+
+// const Input = styled.input`
+//   padding: 10px;
+//   margin: 10px;
+// `;
+
 const Recipe = ({ recipes, setRecipe }) => {
+  const { countryName, recipeName } = useParams();
+
+  // const recipeName = useLocation();
+  // console.log(recipeName); // "/australia/RecipeName"
+  // const updatedRecipeName = recipeName.pathname.slice(2);
+  // console.log(updatedRecipeName);
   return (
     <>
       <BodySection>
         <RecipeContainer>
-          <RecipeCardLG>
-            <RecipeMain>
-              <RecipeTitleContainer>
-                <TitleM dark>Recipe Name</TitleM>
-                <TextMain dark style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Vitae, officia, aut vero illo esse quidem voluptate dicta
-                  earum provident dolorum, similique reiciendis dolore sit quae
-                  praesentium porro? Quibusdam, sint nulla.
-                </TextMain>
-              </RecipeTitleContainer>
-              <RecipeItemsRow>
-                <NutrientsR>
-                  <ListItemR>Protein</ListItemR>
-                  <ListItemR>Fat</ListItemR>
-                  <ListItemR>Carbs</ListItemR>
-                  <ListItemR>Fiber</ListItemR>
-                  <ListItemR>etc</ListItemR>
-                  <ListItemR>etc</ListItemR>
-                </NutrientsR>
-              </RecipeItemsRow>
-              <RecipeInfoContainer>
-                <RecipeIngredients>
-                  <TitleXS dark style={{ textAlign: "left" }}>
-                    Ingredients
-                  </TitleXS>
-                  <TextSecondary dark style={{ textAlign: "left" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam suscipit cupiditate facere, nisi asperiores illo ipsa
-                    aliquid dolor at amet maxime ipsum doloribus officia nam.
-                    Saepe provident earum harum cum!
-                  </TextSecondary>
-                </RecipeIngredients>
-                <RecipeInstructions>
-                  <TitleXS dark style={{ textAlign: "left" }}>
-                    Instructions
-                  </TitleXS>
-                  <TextSecondary dark style={{ textAlign: "left" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam suscipit cupiditate facere, nisi asperiores illo ipsa
-                    aliquid dolor at amet maxime ipsum doloribus officia nam.
-                    Saepe provident earum harum cum!
-                  </TextSecondary>
-                </RecipeInstructions>
-              </RecipeInfoContainer>
-            </RecipeMain>
-            <RecipeImgLG></RecipeImgLG>
-          </RecipeCardLG>
+          {recipes &&
+            recipes
+              .filter((recipe) => recipe.fields.title === recipeName)
+              .map((filteredRecipe) => (
+                <RecipeCardLG>
+                  <RecipeMain>
+                    <RecipeTitleContainer>
+                      <TitleM dark>{filteredRecipe.fields.title}</TitleM>
+                      <TextMain dark style={{ textAlign: "center" }}>
+                        {filteredRecipe.fields.description}
+                      </TextMain>
+                      <TextMain dark>
+                        <em>Serves {filteredRecipe.fields.serves}</em>
+                      </TextMain>
+                    </RecipeTitleContainer>
+                    <RecipeItemsRow>
+                      <NutrList>
+                        {filteredRecipe.fields.nutrition
+                          .slice(0, 4)
+                          .map((nutrient) => {
+                            return (
+                              <>
+                                <NutrItems>
+                                  <TextMain dark>{nutrient.label} </TextMain>
+                                  {Math.round(
+                                    nutrient.total /
+                                      filteredRecipe.fields.serves
+                                  )}
+                                  {nutrient.unit}
+                                </NutrItems>
+                              </>
+                            );
+                          })}
+                      </NutrList>
+                    </RecipeItemsRow>
+                    <RecipeInfoContainer>
+                      <RecipeIngredients>
+                        <TitleXS dark style={{ textAlign: "left" }}>
+                          Ingredients
+                        </TitleXS>
+                        <TextSecondary dark style={{ textAlign: "left" }}>
+                          <IngrList>
+                            {filteredRecipe.fields.ingredients.map(
+                              (ingredient) => {
+                                return (
+                                  <>
+                                    <IngrItems>
+                                      <TextSecondary dark>
+                                        {ingredient}
+                                      </TextSecondary>
+                                    </IngrItems>
+                                  </>
+                                );
+                              }
+                            )}
+                          </IngrList>
+                        </TextSecondary>
+                      </RecipeIngredients>
+                      <RecipeInstructions>
+                        <TitleXS dark style={{ textAlign: "left" }}>
+                          Instructions
+                        </TitleXS>
+                        <TextSecondary dark style={{ textAlign: "left" }}>
+                          <InstrList>
+                            {filteredRecipe.fields.method.map((step) => {
+                              return (
+                                <>
+                                  <InstrItems>
+                                    <TextSecondary dark>{step}</TextSecondary>
+                                  </InstrItems>
+                                </>
+                              );
+                            })}
+                          </InstrList>
+                        </TextSecondary>
+                      </RecipeInstructions>
+                    </RecipeInfoContainer>
+                  </RecipeMain>
+                  <RecipeImgLG
+                    style={{
+                      backgroundImage: `url("${filteredRecipe.fields.url}")`,
+                    }}
+                  ></RecipeImgLG>
+                </RecipeCardLG>
+              ))}
         </RecipeContainer>
       </BodySection>
     </>

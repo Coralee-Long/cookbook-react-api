@@ -1,10 +1,18 @@
 import HeaderNoSearch from "./components/HeaderNoSearch";
 import Header from "./components/Header";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Nav = () => {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div>
-      {window.location.pathname == "/" ? <HeaderNoSearch /> : <Header />}
+      {/* {location.pathname === "/" || location.pathname == `/recipe/*` ? (
+        <HeaderNoSearch />
+      ) : ( */}
+      <Header />
+      {/* )} */}
     </div>
   );
 };

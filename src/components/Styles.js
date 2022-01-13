@@ -40,6 +40,7 @@ color: rgba(23, 23, 23, 0.8)
 export const TitleXS = styled.h5`
   color: rgba(238, 238, 238, 0.9);
   font-size: 1.5rem;
+  }
   ${({ dark }) =>
     dark &&
     `
@@ -50,6 +51,7 @@ color: rgba(23, 23, 23, 0.8)
 export const TitleXXS = styled.h6`
   color: rgba(238, 238, 238, 0.9);
   font-size: 0.7rem;
+
   ${({ dark }) =>
     dark &&
     `
