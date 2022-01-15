@@ -36,7 +36,14 @@ const ToolbarRight = styled.div`
   font-size: 1.5rem;
 `;
 
-const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
+const Header = ({
+  query,
+  setQuery,
+  isSearch,
+  setIsSearch,
+  country,
+  setCountry,
+}) => {
   const location = useLocation();
   const { countryName } = useParams();
 
@@ -49,6 +56,20 @@ const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
       setIsSearch(true);
     }
   };
+
+  const ausHandler = () => {
+    setCountry("australia");
+  };
+
+  const pakHandler = () => {
+    setCountry("pakistan");
+  };
+
+  const saHandler = () => {
+    setCountry("southafrica");
+  };
+
+  console.log(country);
   return (
     <div>
       <Toolbar>
@@ -69,6 +90,7 @@ const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
           <Nav>
             <NavLink
               to="/australia"
+              onClick={ausHandler}
               style={({ isActive }) => ({
                 color: isActive
                   ? "rgba(255, 183, 3, 1)"
@@ -79,6 +101,7 @@ const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
             </NavLink>
             <NavLink
               to="/pakistan"
+              onClick={pakHandler}
               style={({ isActive }) => ({
                 color: isActive
                   ? "rgba(255, 183, 3, 1)"
@@ -89,6 +112,7 @@ const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
             </NavLink>
             <NavLink
               to="/southafrica"
+              onClick={saHandler}
               style={({ isActive }) => ({
                 color: isActive
                   ? "rgba(255, 183, 3, 1)"

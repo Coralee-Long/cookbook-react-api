@@ -210,15 +210,13 @@ const Recipe = ({ recipes, setRecipe }) => {
                           <div>
                             <IngrList>
                               {filteredRecipe.fields.ingredients.map(
-                                (ingredient) => {
+                                (ingredient, index) => {
                                   return (
-                                    <>
-                                      <IngrItems>
-                                        <TextSecondary dark>
-                                          {ingredient}
-                                        </TextSecondary>
-                                      </IngrItems>
-                                    </>
+                                    <IngrItems key={index}>
+                                      <TextSecondary dark>
+                                        {ingredient}
+                                      </TextSecondary>
+                                    </IngrItems>
                                   );
                                 }
                               )}
@@ -233,15 +231,15 @@ const Recipe = ({ recipes, setRecipe }) => {
                         <TextSecondary dark style={{ textAlign: "left" }}>
                           <div>
                             <InstrList>
-                              {filteredRecipe.fields.method.map((step) => {
-                                return (
-                                  <>
-                                    <InstrItems>
+                              {filteredRecipe.fields.method.map(
+                                (step, index) => {
+                                  return (
+                                    <InstrItems key={index}>
                                       <TextSecondary dark>{step}</TextSecondary>
                                     </InstrItems>
-                                  </>
-                                );
-                              })}
+                                  );
+                                }
+                              )}
                             </InstrList>
                           </div>
                         </TextSecondary>

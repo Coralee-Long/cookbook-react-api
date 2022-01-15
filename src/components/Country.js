@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BodySection from "./BodySection";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -16,8 +16,16 @@ import {
 import { IconContext } from "react-icons";
 import { GiFlour, GiMeat, GiSquareBottle } from "react-icons/gi";
 
-const Country = ({ recipes, query, isSearch, isSetSearch }) => {
+const Country = ({
+  recipes,
+  query,
+  isSearch,
+  isSetSearch,
+  country,
+  setCountry,
+}) => {
   const location = useLocation(); // "/australia"
+  const [isIngredient, setIsIngredient] = useState(false);
 
   const updatedLocationName = location.pathname.slice(1); // "australia"
   let locationUpperCase = // "Australia"
@@ -25,29 +33,7 @@ const Country = ({ recipes, query, isSearch, isSetSearch }) => {
   if (updatedLocationName === "southafrica") {
     locationUpperCase = "South Africa";
   }
-  // console.log(recipes);
-  // console.log(query);
-  // console.log(isSearch);
-  // console.log(filteredCountry);
-  // filterCountry is giving us recipes only related to one country
-  const filterCountry = recipes.filter(
-    (recipe) => recipe.fields.country === updatedLocationName
-  );
-  console.log(filterCountry); // 6x Recipes filtered by Country
-
-  const filteredIngredients = filterCountry.map(
-    (recipe) => recipe.fields.ingredients
-  );
-  console.log(filteredIngredients); // 6 Filtered Recipes (with only ingredients array)
-
-  const filterTest = filteredIngredients.map((each) => each);
-  console.log(filterTest);
-
-  const oneRecipe = filteredIngredients.map((item) => item[0]);
-  console.log(oneRecipe);
-  console.log(oneRecipe[0].includes(query));
-
-  console.log(query);
+  console.log(recipes);
 
   return (
     <>
@@ -57,11 +43,9 @@ const Country = ({ recipes, query, isSearch, isSetSearch }) => {
         </CountryTitleW>
         {!isSearch ? (
           <RecipesW>
-            {filterCountry.map((filteredCountry) => (
+            {recipes.map((filteredCountry) => (
               <RecipeCard key={filteredCountry.fields.id}>
-                <Link
-                  to={`/${locationUpperCase}/${filteredCountry.fields.title}`}
-                >
+                <Link to={`/${country}/${filteredCountry.fields.title}`}>
                   <RecipeImg
                     style={{
                       backgroundImage: `url("${filteredCountry.fields.url}")`,
@@ -113,7 +97,60 @@ const Country = ({ recipes, query, isSearch, isSetSearch }) => {
             ))}
           </RecipesW>
         ) : (
-          <>{oneRecipe[0].includes(query) ? "" : "noResultsFound"}</>
+          <RecipesW>
+            {recipes.map((filteredCountry) => (
+              <RecipeCard key={filteredCountry.fields.id}>
+                <Link to={`/${country}/${filteredCountry.fields.title}`}>
+                  <RecipeImg
+                    style={{
+                      backgroundImage: `url("${filteredCountry.fields.url}")`,
+                    }}
+                  />
+                  <RecipeInfo>
+                    <TitleSS dark style={{ textAlign: "center" }}>
+                      {filteredCountry.fields.title}
+                    </TitleSS>
+
+                    <ExtraInfo>
+                      <IconContext.Provider
+                        value={{
+                          size: "2.5rem",
+                          color: "rgba(23, 23, 23, 0.8)",
+                          className: "react-icons",
+                        }}
+                      >
+                        <IconsContainer>
+                          {filteredCountry.fields.nutrition
+                            .slice(0, 3)
+                            .map((nutri, index) => (
+                              <ListItem key={index}>
+                                {nutri.label === "Fat" ? (
+                                  <GiSquareBottle />
+                                ) : (
+                                  ""
+                                )}
+                                {nutri.label === "Carbs" ? <GiFlour /> : ""}
+                                {nutri.label === "Protein" ? <GiMeat /> : ""}
+
+                                {Math.round(
+                                  nutri.total / filteredCountry.fields.serves
+                                )}
+                                {nutri.unit}
+                                {"  "}
+                                {nutri.label}
+                              </ListItem>
+                            ))}
+                        </IconsContainer>
+                      </IconContext.Provider>
+                    </ExtraInfo>
+                    <Description>
+                      {filteredCountry.fields.description}
+                    </Description>
+                  </RecipeInfo>
+                </Link>
+              </RecipeCard>
+            ))}
+          </RecipesW>
         )}
       </BodySection>
     </>

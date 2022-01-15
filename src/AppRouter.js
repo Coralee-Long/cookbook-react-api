@@ -5,7 +5,15 @@ import HomePage from "./components/pages/HomePage";
 import Country from "./components/Country";
 import Recipe from "./components/pages/Recipe";
 
-const AppRouter = ({ query, setQuery, recipes, isSearch, setIsSearch }) => {
+const AppRouter = ({
+  query,
+  setQuery,
+  recipes,
+  isSearch,
+  setIsSearch,
+  country,
+  setCountry,
+}) => {
   return (
     <div>
       <Header
@@ -13,6 +21,8 @@ const AppRouter = ({ query, setQuery, recipes, isSearch, setIsSearch }) => {
         setQuery={setQuery}
         isSearch={isSearch}
         setIsSearch={setIsSearch}
+        country={country}
+        setCountry={setCountry}
       />
       <Routes>
         <Route exact path="/" element={<HomePage />}></Route>
@@ -26,6 +36,8 @@ const AppRouter = ({ query, setQuery, recipes, isSearch, setIsSearch }) => {
               setQuery={setQuery}
               isSearch={isSearch}
               setIsSearch={setIsSearch}
+              country={country}
+              setCountry={setCountry}
             />
           }
         />
