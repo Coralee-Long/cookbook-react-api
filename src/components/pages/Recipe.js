@@ -169,7 +169,7 @@ const Recipe = ({ recipes, setRecipe }) => {
             recipes
               .filter((recipe) => recipe.fields.title === recipeName)
               .map((filteredRecipe) => (
-                <RecipeCardLG>
+                <RecipeCardLG key={filteredRecipe.fields.id}>
                   <RecipeMain>
                     <RecipeTitleContainer>
                       <TitleM dark>{filteredRecipe.fields.title}</TitleM>
@@ -177,6 +177,7 @@ const Recipe = ({ recipes, setRecipe }) => {
                         {filteredRecipe.fields.description}
                       </TextMain>
                       <TextMain dark>
+                        <br />
                         <em>Serves {filteredRecipe.fields.serves}</em>
                       </TextMain>
                     </RecipeTitleContainer>
@@ -206,21 +207,23 @@ const Recipe = ({ recipes, setRecipe }) => {
                           Ingredients
                         </TitleXS>
                         <TextSecondary dark style={{ textAlign: "left" }}>
-                          <IngrList>
-                            {filteredRecipe.fields.ingredients.map(
-                              (ingredient) => {
-                                return (
-                                  <>
-                                    <IngrItems>
-                                      <TextSecondary dark>
-                                        {ingredient}
-                                      </TextSecondary>
-                                    </IngrItems>
-                                  </>
-                                );
-                              }
-                            )}
-                          </IngrList>
+                          <div>
+                            <IngrList>
+                              {filteredRecipe.fields.ingredients.map(
+                                (ingredient) => {
+                                  return (
+                                    <>
+                                      <IngrItems>
+                                        <TextSecondary dark>
+                                          {ingredient}
+                                        </TextSecondary>
+                                      </IngrItems>
+                                    </>
+                                  );
+                                }
+                              )}
+                            </IngrList>
+                          </div>
                         </TextSecondary>
                       </RecipeIngredients>
                       <RecipeInstructions>
@@ -228,17 +231,19 @@ const Recipe = ({ recipes, setRecipe }) => {
                           Instructions
                         </TitleXS>
                         <TextSecondary dark style={{ textAlign: "left" }}>
-                          <InstrList>
-                            {filteredRecipe.fields.method.map((step) => {
-                              return (
-                                <>
-                                  <InstrItems>
-                                    <TextSecondary dark>{step}</TextSecondary>
-                                  </InstrItems>
-                                </>
-                              );
-                            })}
-                          </InstrList>
+                          <div>
+                            <InstrList>
+                              {filteredRecipe.fields.method.map((step) => {
+                                return (
+                                  <>
+                                    <InstrItems>
+                                      <TextSecondary dark>{step}</TextSecondary>
+                                    </InstrItems>
+                                  </>
+                                );
+                              })}
+                            </InstrList>
+                          </div>
                         </TextSecondary>
                       </RecipeInstructions>
                     </RecipeInfoContainer>

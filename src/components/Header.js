@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { TextMain } from "./Styles";
 import { MdOutlineFoodBank } from "react-icons/md";
-import Search from "./Search";
 
 const Toolbar = styled.div`
   height: 6vh;
@@ -37,9 +36,19 @@ const ToolbarRight = styled.div`
   font-size: 1.5rem;
 `;
 
-const Header = ({ query }) => {
+const Header = ({ query, setQuery, isSearch, setIsSearch }) => {
   const location = useLocation();
   const { countryName } = useParams();
+
+  const queryChangeHandler = (e) => {
+    if (e.target.value === "") {
+      setQuery(e.target.value);
+      setIsSearch(false);
+    } else {
+      setQuery(e.target.value);
+      setIsSearch(true);
+    }
+  };
   return (
     <div>
       <Toolbar>
@@ -90,13 +99,21 @@ const Header = ({ query }) => {
             </NavLink>
           </Nav>
         </ToolbarMiddle>
-        {location.pathname == "/" ||
-        location.pathname == "/recipe/recipeName" ? (
-          ""
-        ) : (
+        {/* {location.pathname == "/" ||
+        location.pathname == "/recipe/recipeName" ? ( */}
+        {location.pathname === "/australia" ||
+        location.pathname === "/pakistan" ||
+        location.pathname === "/southafrica" ? (
           <ToolbarRight>
-            <Search query={query} />
+            <input
+              value={query}
+              onChange={queryChangeHandler}
+              type="text"
+              placeholder="Search for an ingredient"
+            ></input>
           </ToolbarRight>
+        ) : (
+          ""
         )}
       </Toolbar>
     </div>

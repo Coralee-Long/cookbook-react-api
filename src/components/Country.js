@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BodySection from "./BodySection";
-import Header from "./Header";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Styles.css";
@@ -9,7 +8,7 @@ import {
   TitleXL,
   TitleL,
   TitleM,
-  TitleS,
+  TitleSS,
   TitleXS,
   TextMain,
   TextSecondary,
@@ -17,16 +16,37 @@ import {
 import { IconContext } from "react-icons";
 import { GiFlour, GiMeat, GiSquareBottle } from "react-icons/gi";
 
-const Country = ({ recipes, query }) => {
-  const countryName = useParams();
+const Country = ({ recipes, query, isSearch, isSetSearch }) => {
   const location = useLocation(); // "/australia"
-  const [icon, setIcon] = useState("");
+
   const updatedLocationName = location.pathname.slice(1); // "australia"
   let locationUpperCase = // "Australia"
     updatedLocationName.charAt(0).toUpperCase() + updatedLocationName.slice(1);
   if (updatedLocationName === "southafrica") {
     locationUpperCase = "South Africa";
   }
+  // console.log(recipes);
+  // console.log(query);
+  // console.log(isSearch);
+  // console.log(filteredCountry);
+  // filterCountry is giving us recipes only related to one country
+  const filterCountry = recipes.filter(
+    (recipe) => recipe.fields.country === updatedLocationName
+  );
+  console.log(filterCountry); // 6x Recipes filtered by Country
+
+  const filteredIngredients = filterCountry.map(
+    (recipe) => recipe.fields.ingredients
+  );
+  console.log(filteredIngredients); // 6 Filtered Recipes (with only ingredients array)
+
+  const filterTest = filteredIngredients.map((each) => each);
+  console.log(filterTest);
+
+  const oneRecipe = filteredIngredients.map((item) => item[0]);
+  console.log(oneRecipe);
+  console.log(oneRecipe[0].includes(query));
+
   console.log(query);
 
   return (
@@ -35,10 +55,9 @@ const Country = ({ recipes, query }) => {
         <CountryTitleW>
           <TitleL>{locationUpperCase}</TitleL>
         </CountryTitleW>
-        <RecipesW>
-          {recipes
-            .filter((recipe) => recipe.fields.country === updatedLocationName)
-            .map((filteredCountry) => (
+        {!isSearch ? (
+          <RecipesW>
+            {filterCountry.map((filteredCountry) => (
               <RecipeCard key={filteredCountry.fields.id}>
                 <Link
                   to={`/${locationUpperCase}/${filteredCountry.fields.title}`}
@@ -49,9 +68,9 @@ const Country = ({ recipes, query }) => {
                     }}
                   />
                   <RecipeInfo>
-                    <TitleS dark style={{ textAlign: "center" }}>
+                    <TitleSS dark style={{ textAlign: "center" }}>
                       {filteredCountry.fields.title}
-                    </TitleS>
+                    </TitleSS>
 
                     <ExtraInfo>
                       <IconContext.Provider
@@ -92,7 +111,10 @@ const Country = ({ recipes, query }) => {
                 </Link>
               </RecipeCard>
             ))}
-        </RecipesW>
+          </RecipesW>
+        ) : (
+          <>{oneRecipe[0].includes(query) ? "" : "noResultsFound"}</>
+        )}
       </BodySection>
     </>
   );
@@ -146,7 +168,7 @@ const RecipeImg = styled.div`
   border-radius: 15px !important;
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   display: none;
   text-align: center;
   padding-top: 2rem;
@@ -155,8 +177,8 @@ const Description = styled.p`
 
 const RecipeInfo = styled.div`
   width: 100%;
-  height: 35%;
-  bottom: 35% !important;
+  height: 40%;
+  bottom: 40% !important;
   position: relative;
   background-color: rgba(238, 238, 238, 0.85);
   display: flex;

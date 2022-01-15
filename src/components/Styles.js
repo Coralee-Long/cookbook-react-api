@@ -37,6 +37,16 @@ export const TitleS = styled.h4`
 color: rgba(23, 23, 23, 0.8)
 `}
 `;
+export const TitleSS = styled.h4`
+  color: rgba(238, 238, 238, 0.9);
+  font-size: 1.7rem;
+  margin-bottom: 0;
+  ${({ dark }) =>
+    dark &&
+    `
+color: rgba(23, 23, 23, 0.8)
+`}
+`;
 export const TitleXS = styled.h5`
   color: rgba(238, 238, 238, 0.9);
   font-size: 1.5rem;
@@ -59,7 +69,7 @@ color: rgba(23, 23, 23, 0.8)
 `}
 `;
 
-export const TextMain = styled.p`
+export const TextMain = styled.div`
   color: rgba(238, 238, 238, 0.9);
   font-size: 1rem;
   font-weight: bold;
@@ -71,7 +81,7 @@ color: rgba(23, 23, 23, 0.8)
 `}
 `;
 
-export const TextSecondary = styled.p`
+export const TextSecondary = styled.div`
   color: rgba(238, 238, 238, 0.7);
   font-size: 1rem;
 

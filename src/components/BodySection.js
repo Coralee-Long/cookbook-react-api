@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const BodySection = styled.div`
   height: 84vh;
@@ -14,8 +16,15 @@ const BodySection = styled.div`
   justify-content: space-between;
 `;
 
-const Body = (props) => {
-  return <BodySection>{props.children}</BodySection>;
+const Body = ({ children, query, setQuery, recipes }) => {
+  return (
+    <>
+      {/* <Header query={query} setQuery={setQuery}> */}
+      <BodySection>{children}</BodySection>
+      {/* </Header>
+      <Footer /> */}
+    </>
+  );
 };
 
 export default Body;
