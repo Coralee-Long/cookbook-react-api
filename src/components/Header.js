@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { TextMain } from "./Styles";
 import { MdOutlineFoodBank } from "react-icons/md";
-import Styles from "./Styles";
 
 const Toolbar = styled.div`
   height: 8vh;
@@ -147,8 +146,6 @@ const Header = ({
             </NavLink>
           </Nav>
         </ToolbarMiddle>
-        {/* {location.pathname == "/" ||
-        location.pathname == "/recipe/recipeName" ? ( */}
         {location.pathname === "/australia" ||
         location.pathname === "/pakistan" ||
         location.pathname === "/southafrica" ? (

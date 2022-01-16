@@ -3,16 +3,8 @@ import BodySection from "./BodySection";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Styles.css";
-import { useParams, useLocation } from "react-router";
-import {
-  TitleXL,
-  TitleL,
-  TitleM,
-  TitleSS,
-  TitleXS,
-  TextMain,
-  TextSecondary,
-} from "../components/Styles";
+import { useLocation } from "react-router";
+import { TitleL, TitleSS } from "../components/Styles";
 import { IconContext } from "react-icons";
 import { GiFlour, GiMeat, GiSquareBottle } from "react-icons/gi";
 

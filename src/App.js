@@ -9,8 +9,6 @@ const App = () => {
   const [isSearch, setIsSearch] = useState(false);
   const [country, setCountry] = useState("");
 
-  const queryURL = `https://cdn.contentful.com//spaces/9vpi9vn3xsf3/environments/master/entries?access_token=iJLJdTNrTyH-jqu43sCdZoqvlaA1WnUkdtBnp45eIGA&content_type=recipes&query=salt`;
-
   const fetchContentful = async () => {
     try {
       const data = await client
@@ -25,7 +23,7 @@ const App = () => {
       console.log(error);
     }
   };
-  console.log(recipes);
+  // console.log(recipes);
   // client.getEntries().then((response) => setRecipes(response.items));
 
   useEffect(() => {

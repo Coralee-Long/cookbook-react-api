@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from "react";
 import BodySection from "../BodySection";
 import styled from "styled-components";
-import { useParams, useLocation } from "react-router-dom";
-import {
-  TitleXL,
-  TitleL,
-  TitleM,
-  TitleS,
-  TitleXS,
-  TextMain,
-  TextSecondary,
-} from "../Styles";
+import { useParams } from "react-router-dom";
+import { TitleM, TitleXS, TextMain, TextSecondary } from "../Styles";
 
 const RecipeContainer = styled.div`
-  /* border: 1px solid yellow; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -24,7 +14,6 @@ const RecipeContainer = styled.div`
 `;
 
 const RecipeCardLG = styled.div`
-  /* border: 1px solid rgba(238, 238, 238, 0.9); */
   width: 100%;
   height: 100%;
   box-shadow: 20px 20px 25px rgba(23, 23, 23, 0.9);
@@ -80,13 +69,6 @@ const ListItemR = styled.li`
   color: rgba(23, 23, 23, 0.8);
   padding: 0 1.5rem;
 `;
-
-// const NutrientsR = styled.ul`
-//   display: flex;
-//   flex-direction: row;
-//   /* justify-content: space-between; */
-//   list-style-type: none;
-// `;
 
 const RecipeInfoContainer = styled.div`
   /* border: 1px solid purple; */

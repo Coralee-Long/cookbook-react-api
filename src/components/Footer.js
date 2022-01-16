@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  TitleXL,
-  TitleL,
-  TitleM,
-  TitleS,
-  TitleXS,
-  TextMain,
-  TextSecondary,
-} from "../components/Styles";
+import { TitleS, TextSecondary } from "../components/Styles";
 import {
   FaFacebookSquare,
   FaYoutubeSquare,
