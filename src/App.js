@@ -23,8 +23,6 @@ const App = () => {
       console.log(error);
     }
   };
-  // console.log(recipes);
-  // client.getEntries().then((response) => setRecipes(response.items));
 
   useEffect(() => {
     fetchContentful();
