@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const BodySection = styled.div`
-  height: 84vh;
+  height: 80vh;
   width: 100%;
   background-image: url("https://images.unsplash.com/photo-1447078806655-40579c2520d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80");
   background-repeat: no-repeat;

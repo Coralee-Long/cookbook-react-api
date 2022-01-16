@@ -132,7 +132,7 @@ const CountryP = styled.p`
   padding-bottom: 12px;
 `;
 
-const HomePage = () => {
+const HomePage = ({ country, setCountry }) => {
   return (
     <>
       <BodySection>
@@ -157,7 +157,7 @@ const HomePage = () => {
 
         <CountriesContainer>
           <CountryCard>
-            <Link to="/australia">
+            <Link to="/australia" onClick={() => setCountry("australia")}>
               <CardImage aus>
                 <TitleWrapper>
                   <TitleBox>
@@ -170,7 +170,7 @@ const HomePage = () => {
           </CountryCard>
 
           <CountryCard>
-            <Link to="/pakistan">
+            <Link to="/pakistan" onClick={() => setCountry("pakistan")}>
               <CardImage pak>
                 <TitleWrapper>
                   <TitleBox>
@@ -183,7 +183,7 @@ const HomePage = () => {
           </CountryCard>
 
           <CountryCard>
-            <Link to="/southafrica">
+            <Link to="/southafrica" onClick={() => setCountry("southafrica")}>
               <CardImage sa>
                 <TitleWrapper>
                   <TitleBox>

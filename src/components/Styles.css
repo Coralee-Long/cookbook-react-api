@@ -1,7 +1,26 @@
+html,
+body {
+  overflow: hidden;
+}
+
 .react-icons {
   padding: 5px 0;
 }
 
 .react-icons-footer {
   padding: 0.5rem, 1rem;
+}
+
+.navItem {
+  transition-duration: 0.3s;
+}
+
+.navItem:hover {
+  transform: scale(1.1);
+  color: white;
+  text-shadow: 1px 1px 1px white;
+}
+
+.icon {
+  transition-duration: 0.3s;
 }

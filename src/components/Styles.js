@@ -10,8 +10,9 @@ color: rgba(23, 23, 23, 0.8)
 `}
 `;
 export const TitleL = styled.h2`
-  color: rgba(238, 238, 238, 0.9);
+  color: rgba(238, 238, 238, 1);
   font-size: 4rem;
+  text-shadow: 2px 2px 8px rgba(23, 23, 23, 0.8);
   ${({ dark }) =>
     dark &&
     `

@@ -3,20 +3,27 @@ import styled from "styled-components";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { TextMain } from "./Styles";
 import { MdOutlineFoodBank } from "react-icons/md";
+import Styles from "./Styles";
 
 const Toolbar = styled.div`
-  height: 6vh;
+  height: 8vh;
   background-color: rgb(21, 27, 35);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10rem;
+  padding: 0 8rem;
 `;
 
 const ToolbarLeft = styled.div`
   color: #faf9f9;
   font-size: 3.5rem;
   text-align: center;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.07);
+    color: white;
+  }
 `;
 const ToolbarMiddle = styled.div`
   color: #faf9f9;
@@ -34,6 +41,19 @@ const Nav = styled.div`
 const ToolbarRight = styled.div`
   color: #faf9f9;
   font-size: 1.5rem;
+`;
+
+const Input = styled.input`
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(238, 238, 238, 0.8);
+  font-size: 1.2rem;
+  padding-left: 15px;
+  &:focus {
+    outline: 2px solid rgba(255, 183, 3, 1);
+  }
 `;
 
 const Header = ({
@@ -75,6 +95,7 @@ const Header = ({
       <Toolbar>
         <ToolbarLeft>
           <NavLink
+            className="navItem"
             to="/"
             style={({ isActive }) => ({
               color: isActive
@@ -89,6 +110,7 @@ const Header = ({
         <ToolbarMiddle>
           <Nav>
             <NavLink
+              className="navItem"
               to="/australia"
               onClick={ausHandler}
               style={({ isActive }) => ({
@@ -100,6 +122,7 @@ const Header = ({
               Australia
             </NavLink>
             <NavLink
+              className="navItem"
               to="/pakistan"
               onClick={pakHandler}
               style={({ isActive }) => ({
@@ -111,6 +134,7 @@ const Header = ({
               Pakistan
             </NavLink>
             <NavLink
+              className="navItem"
               to="/southafrica"
               onClick={saHandler}
               style={({ isActive }) => ({
@@ -129,12 +153,12 @@ const Header = ({
         location.pathname === "/pakistan" ||
         location.pathname === "/southafrica" ? (
           <ToolbarRight>
-            <input
+            <Input
               value={query}
               onChange={queryChangeHandler}
               type="text"
-              placeholder="Search for an ingredient"
-            ></input>
+              placeholder="Search..."
+            ></Input>
           </ToolbarRight>
         ) : (
           ""

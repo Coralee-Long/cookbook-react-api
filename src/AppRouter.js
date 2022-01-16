@@ -25,7 +25,11 @@ const AppRouter = ({
         setCountry={setCountry}
       />
       <Routes>
-        <Route exact path="/" element={<HomePage />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<HomePage country={country} setCountry={setCountry} />}
+        ></Route>
         <Route
           exact
           path="/:countryName"

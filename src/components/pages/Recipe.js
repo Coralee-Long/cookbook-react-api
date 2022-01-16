@@ -19,8 +19,6 @@ const RecipeContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-
   row-gap: 5px;
   column-gap: 10px;
 `;
@@ -55,7 +53,7 @@ const RecipeMain = styled.div`
   justify-content: center;
   align-items: center;
   transition-duration: 0.5s;
-  padding: 2rem 3.5rem;
+  padding: 2rem 5rem;
 `;
 
 const RecipeTitleContainer = styled.div`
@@ -65,7 +63,7 @@ const RecipeTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 `;
 
 const RecipeItemsRow = styled.div`
@@ -80,7 +78,7 @@ const RecipeItemsRow = styled.div`
 
 const ListItemR = styled.li`
   color: rgba(23, 23, 23, 0.8);
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 `;
 
 // const NutrientsR = styled.ul`
@@ -106,9 +104,9 @@ const RecipeIngredients = styled.div`
   width: 40%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
-  align-items: center;
-  padding-top: 3rem;
+  padding: 2rem 1rem 0 1rem;
 `;
 
 const RecipeInstructions = styled.div`
@@ -118,14 +116,14 @@ const RecipeInstructions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  padding: 3rem 1rem 0 1rem;
+  padding: 2rem 1rem 0 1rem;
 `;
 
 const IngrItems = styled.li`
   color: rgba(23, 23, 23, 0.8);
-  border-bottom: 1px solid rgba(23, 23, 23, 0.2);
-  padding: 1rem 0;
+
+  /* border-bottom: 1px solid rgba(23, 23, 23, 0.2); */
+  padding: 0.5rem 0;
 `;
 
 const IngrList = styled.ul`
@@ -136,11 +134,12 @@ const IngrList = styled.ul`
 const InstrItems = styled.li`
   color: rgba(23, 23, 23, 0.8);
   border-bottom: 1px solid rgba(23, 23, 23, 0.2);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 `;
 
 const InstrList = styled.ul`
   list-style-type: none;
+  padding-inline-start: 0px !important;
 `;
 
 const NutrList = styled.ul`
@@ -173,7 +172,10 @@ const Recipe = ({ recipes, setRecipe }) => {
                   <RecipeMain>
                     <RecipeTitleContainer>
                       <TitleM dark>{filteredRecipe.fields.title}</TitleM>
-                      <TextMain dark style={{ textAlign: "center" }}>
+                      <TextMain
+                        dark
+                        style={{ textAlign: "center", width: "80%" }}
+                      >
                         {filteredRecipe.fields.description}
                       </TextMain>
                       <TextMain dark>

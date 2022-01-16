@@ -20,13 +20,14 @@ import { IconContext } from "react-icons";
 import "./Styles.css";
 
 const FooterContainer = styled.div`
-  height: 10vh;
+  height: 12vh;
   background-color: rgb(21, 27, 35);
   display: flex;
   justify-content: space-between;
   justify-content: center;
   align-items: center;
   padding: 0 4rem;
+  bottom: -5px;
 `;
 
 const FooterContent = styled.div`
@@ -45,6 +46,7 @@ const Icons = styled.div`
   justify-content: space-evenly;
   padding: 1rem 0;
   width: 40%;
+  border-radius: 10px !important;
 `;
 
 const Footer = () => {
