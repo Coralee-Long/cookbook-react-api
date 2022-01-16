@@ -106,7 +106,6 @@ const TitleBox = styled.div`
 
   &:hover {
     transform: scale(1.06);
-    color: white;
   }
 `;
 

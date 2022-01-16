@@ -16,9 +16,8 @@ body {
 }
 
 .navItem:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   color: white;
-  text-shadow: 1px 1px 1px white;
 }
 
 .icon {
