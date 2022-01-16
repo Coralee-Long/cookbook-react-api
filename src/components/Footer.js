@@ -46,7 +46,9 @@ const Footer = () => {
     <div>
       <FooterContainer>
         <FooterContent>
-          <TitleS>Food.Me</TitleS>
+          <TitleS>
+            Recipe.<span style={{ color: "rgb(255, 183, 3)" }}>Me</span>
+          </TitleS>
           <Icons>
             <IconContext.Provider
               value={{

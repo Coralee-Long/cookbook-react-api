@@ -16,7 +16,7 @@ const BigTitleContainer = styled.div`
 
 const TextTitle = styled.p`
   color: rgba(238, 238, 238, 0.9);
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: center;
   text-shadow: black 2px 0 10px;
 `;
@@ -128,21 +128,26 @@ const HomePage = ({ country, setCountry }) => {
     <>
       <BodySection>
         <BigTitleContainer>
-          <TitleXL>Title Placeholder</TitleXL>
+          <TitleXL>
+            Recipe.<span style={{ color: "rgb(255, 183, 3)" }}>Me</span>
+          </TitleXL>
           <TextTitle>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti
-            consectetur rerum qui quaerat, corporis voluptatem eveniet nihil, ex
-            cumque laboriosam facere! <br />
-            Dolore nulla magni ducimus ab in, asperiores sit dicta! Lorem ipsum
+            Our recipes primarily use fresh, unprocessed ingredients but we also
+            believe there is a time and a place for canned, frozen, and other
+            prepared ingredients. We believe in a diet that includes a wide
+            variety of foods: real butter and cream, extra virgin olive oil,
+            eggs, lots of fruits and vegetables, and protein from meat, fish,
+            beans, and cheese. Plus cake for dessert. Recipe.Me is here to help
+            you cook delicious meals with less stress and more joy. We offer
+            recipes and cooking advice for home cooks, by home cooks.
             <br />
             <br />
-            dolor sit amet consectetur, adipisicing elit. Deleniti consectetur
-            rerum qui quaerat, corporis voluptatem eveniet nihil, ex cumque
-            laboriosam facere! Dolore nulla magni ducimus ab in, asperiores sit
-            dicta! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Deleniti consectetur rerum qui quaerat, corporis voluptatem eveniet
-            nihil, ex cumque laboriosam facere! Dolore nulla magni ducimus ab
-            in, asperiores sit dicta!
+            Today, Recipe.Me has grown into a trusted resource for home cooks
+            with more than 3,000 tested recipes, guides, and meal plans, drawing
+            over 15 million readers each month from around the world. We’re
+            supported by a diverse group of recipe developers, food writers,
+            recipe and product testers, photographers, and other creative
+            professionals.
           </TextTitle>
         </BigTitleContainer>
 

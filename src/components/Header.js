@@ -106,7 +106,9 @@ const Header = ({
             })}
           >
             <MdOutlineFoodBank value={{ size: "3.5em" }} />
-            <TextMain>Food.Me</TextMain>
+            <TextMain>
+              Recipe.<span style={{ color: "rgb(255, 183, 3)" }}>Me</span>
+            </TextMain>
           </NavLink>
         </ToolbarLeft>
         <ToolbarMiddle>
