@@ -46,7 +46,6 @@ const RecipeMain = styled.div`
 `;
 
 const RecipeTitleContainer = styled.div`
-  /* border: 1px solid red; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -71,7 +70,6 @@ const ListItemR = styled.li`
 `;
 
 const RecipeInfoContainer = styled.div`
-  /* border: 1px solid purple; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -81,7 +79,6 @@ const RecipeInfoContainer = styled.div`
 `;
 
 const RecipeIngredients = styled.div`
-  /* border: 1px solid green; */
   height: 98%;
   width: 40%;
   display: flex;
@@ -92,7 +89,6 @@ const RecipeIngredients = styled.div`
 `;
 
 const RecipeInstructions = styled.div`
-  /* border: 1px solid green; */
   height: 98%;
   width: 60%;
   display: flex;
@@ -103,8 +99,6 @@ const RecipeInstructions = styled.div`
 
 const IngrItems = styled.li`
   color: rgba(23, 23, 23, 0.8);
-
-  /* border-bottom: 1px solid rgba(23, 23, 23, 0.2); */
   padding: 0.5rem 0;
 `;
 
@@ -171,16 +165,13 @@ const Recipe = ({ recipes, setRecipe }) => {
                           .slice(0, 4)
                           .map((nutrient, index) => {
                             return (
-                              <>
-                                <NutrItems key={index}>
-                                  <TextMain dark>{nutrient.label} </TextMain>
-                                  {Math.round(
-                                    nutrient.total /
-                                      filteredRecipe.fields.serves
-                                  )}
-                                  {nutrient.unit}
-                                </NutrItems>
-                              </>
+                              <NutrItems key={index}>
+                                <TextMain dark>{nutrient.label} </TextMain>
+                                {Math.round(
+                                  nutrient.total / filteredRecipe.fields.serves
+                                )}
+                                {nutrient.unit}
+                              </NutrItems>
                             );
                           })}
                       </NutrList>

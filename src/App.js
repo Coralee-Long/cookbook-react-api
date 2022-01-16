@@ -11,7 +11,7 @@ const App = () => {
 
   const fetchContentful = async () => {
     try {
-      const data = await client
+      await client
         .getEntries({
           content_type: "recipes",
           select: "fields",
