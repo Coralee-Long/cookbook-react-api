@@ -3,15 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import BodySection from "../BodySection";
 import { Link } from "react-router-dom";
-import {
-  TitleXL,
-  TitleL,
-  TitleM,
-  TitleS,
-  TitleXS,
-  TextMain,
-  TextSecondary,
-} from "../Styles";
+import { TitleXL } from "../Styles";
 
 const BigTitleContainer = styled.div`
   height: 40%;

@@ -169,10 +169,10 @@ const Recipe = ({ recipes, setRecipe }) => {
                       <NutrList>
                         {filteredRecipe.fields.nutrition
                           .slice(0, 4)
-                          .map((nutrient) => {
+                          .map((nutrient, index) => {
                             return (
                               <>
-                                <NutrItems>
+                                <NutrItems key={index}>
                                   <TextMain dark>{nutrient.label} </TextMain>
                                   {Math.round(
                                     nutrient.total /
