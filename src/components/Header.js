@@ -78,14 +78,17 @@ const Header = ({
 
   const ausHandler = () => {
     setCountry("australia");
+    setQuery("");
   };
 
   const pakHandler = () => {
     setCountry("pakistan");
+    setQuery("");
   };
 
   const saHandler = () => {
     setCountry("southafrica");
+    setQuery("");
   };
 
   console.log(country);
