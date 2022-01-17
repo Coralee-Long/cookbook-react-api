@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import BodySection from "./BodySection";
+import React, { useState } from "react";
+import BodySection from "../BodySection";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import "./Styles.css";
+import "../Styles.css";
 import { useLocation } from "react-router";
-import { TitleL, TitleSS } from "../components/Styles";
+import { TitleL, TitleSS } from "../Styles";
 import { IconContext } from "react-icons";
 import { GiFlour, GiMeat, GiSquareBottle } from "react-icons/gi";
 

@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./components/pages/HomePage";
-import Country from "./components/Country";
+import Country from "./components/pages/Country";
 import Recipe from "./components/pages/Recipe";
 
 const AppRouter = ({
