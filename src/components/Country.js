@@ -256,11 +256,11 @@ const ListItem = styled.li`
 
 export const TitleResults = styled.h2`
   color: rgba(255, 183, 3, 1); // yellow
-  border: 4px solid rgba(255, 183, 3, 1);
+  border: 3px solid rgba(255, 183, 3, 1);
   border-radius: 10px;
-  padding: 30px 50px;
-  font-size: 4rem;
-  text-shadow: 2px 2px 8px rgba(23, 23, 23, 0.5);
+  padding: 25px 45px;
+  font-size: 3rem;
+  /* text-shadow: 2px 2px 8px rgba(23, 23, 23, 0.5); */
   align-self: flex-start;
   bottom: 800px;
 `;
