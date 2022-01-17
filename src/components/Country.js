@@ -90,58 +90,65 @@ const Country = ({
           </RecipesW>
         ) : (
           <RecipesW>
-            {recipes.map((filteredCountry) => (
-              <RecipeCard key={filteredCountry.fields.id}>
-                <Link to={`/${country}/${filteredCountry.fields.title}`}>
-                  <RecipeImg
-                    style={{
-                      backgroundImage: `url("${filteredCountry.fields.url}")`,
-                    }}
-                  />
-                  <RecipeInfo>
-                    <TitleSS dark style={{ textAlign: "center" }}>
-                      {filteredCountry.fields.title}
-                    </TitleSS>
+            {/* {recipes.length === 0 ? "stuff not found" : "stuff found"} */}
+            {recipes.length === 0 ? (
+              <ResultsDiv>
+                <TitleResults>No recipes found</TitleResults>
+              </ResultsDiv>
+            ) : (
+              recipes.map((filteredCountry) => (
+                <RecipeCard key={filteredCountry.fields.id}>
+                  <Link to={`/${country}/${filteredCountry.fields.title}`}>
+                    <RecipeImg
+                      style={{
+                        backgroundImage: `url("${filteredCountry.fields.url}")`,
+                      }}
+                    />
+                    <RecipeInfo>
+                      <TitleSS dark style={{ textAlign: "center" }}>
+                        {filteredCountry.fields.title}
+                      </TitleSS>
 
-                    <ExtraInfo>
-                      <IconContext.Provider
-                        value={{
-                          size: "2.5rem",
-                          color: "rgba(23, 23, 23, 0.8)",
-                          className: "react-icons",
-                        }}
-                      >
-                        <IconsContainer>
-                          {filteredCountry.fields.nutrition
-                            .slice(0, 3)
-                            .map((nutri, index) => (
-                              <ListItem key={index}>
-                                {nutri.label === "Fat" ? (
-                                  <GiSquareBottle />
-                                ) : (
-                                  ""
-                                )}
-                                {nutri.label === "Carbs" ? <GiFlour /> : ""}
-                                {nutri.label === "Protein" ? <GiMeat /> : ""}
+                      <ExtraInfo>
+                        <IconContext.Provider
+                          value={{
+                            size: "2.5rem",
+                            color: "rgba(23, 23, 23, 0.8)",
+                            className: "react-icons",
+                          }}
+                        >
+                          <IconsContainer>
+                            {filteredCountry.fields.nutrition
+                              .slice(0, 3)
+                              .map((nutri, index) => (
+                                <ListItem key={index}>
+                                  {nutri.label === "Fat" ? (
+                                    <GiSquareBottle />
+                                  ) : (
+                                    ""
+                                  )}
+                                  {nutri.label === "Carbs" ? <GiFlour /> : ""}
+                                  {nutri.label === "Protein" ? <GiMeat /> : ""}
 
-                                {Math.round(
-                                  nutri.total / filteredCountry.fields.serves
-                                )}
-                                {nutri.unit}
-                                {"  "}
-                                {nutri.label}
-                              </ListItem>
-                            ))}
-                        </IconsContainer>
-                      </IconContext.Provider>
-                    </ExtraInfo>
-                    <Description>
-                      {filteredCountry.fields.description}
-                    </Description>
-                  </RecipeInfo>
-                </Link>
-              </RecipeCard>
-            ))}
+                                  {Math.round(
+                                    nutri.total / filteredCountry.fields.serves
+                                  )}
+                                  {nutri.unit}
+                                  {"  "}
+                                  {nutri.label}
+                                </ListItem>
+                              ))}
+                          </IconsContainer>
+                        </IconContext.Provider>
+                      </ExtraInfo>
+                      <Description>
+                        {filteredCountry.fields.description}
+                      </Description>
+                    </RecipeInfo>
+                  </Link>
+                </RecipeCard>
+              ))
+            )}
           </RecipesW>
         )}
       </BodySection>
@@ -245,4 +252,19 @@ const ListItem = styled.li`
   align-items: center;
   color: rgba(23, 23, 23, 0.8);
   padding: 0 1rem;
+`;
+
+export const TitleResults = styled.h2`
+  color: rgba(255, 183, 3, 1); // yellow
+  border: 4px solid rgba(255, 183, 3, 1);
+  border-radius: 10px;
+  padding: 30px 50px;
+  font-size: 4rem;
+  text-shadow: 2px 2px 8px rgba(23, 23, 23, 0.5);
+  align-self: flex-start;
+  bottom: 800px;
+`;
+
+export const ResultsDiv = styled.div`
+  margin-bottom: 700px;
 `;
